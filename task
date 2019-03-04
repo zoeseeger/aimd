@@ -1,6 +1,0 @@
-path_to_file = water.inp
-step_no      = 1
-dt           = 1e-15
-temp         = 300
-
-
