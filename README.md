@@ -74,10 +74,10 @@
 
 ### Units:
 
-- Position    Bohr                           (Bohr)
-- Time        Second                         (s)
-- Mass        AMU                            (AMU)
-- Velocity    Bohr per Second                (Bohr/s)
-- Force       AMU by Bohr per Second squared (AMU*Bohr/s^2)
+          Position    Bohr                           (Bohr)
+          Time        Second                         (s)
+          Mass        AMU                            (AMU)
+          Velocity    Bohr per Second                (Bohr/s)
+          Force       AMU by Bohr per Second squared (AMU*Bohr/s^2)
 
 
