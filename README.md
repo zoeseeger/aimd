@@ -1,9 +1,27 @@
-    ab initio molecular dynamics using verlocity verlet
------------------------
+# ab initio molecular dynamics with metadynamics
 
------------------------
-FILES:
------------------------
+- Python module
+- Spawns GAMESS gradient calculations and pulls the forces
+- Uses verlocity verlet MD
+- Requires numpy
+
+
+### Input:
+
+• task file (eg):
+
+    path_to_file = water.inp # gamess gradient input file 
+    step_no      = 60000     # number of steps
+    dt           = 1e-15     # time step
+    temp         = 300       # temperature
+    restart      = True      # Boolean for restart calculation
+    mtd          = True      # Boolean for metadynamics simulation
+        
+• expects gamess gradient input file
+
+
+### Files
+
 • aimd executes md() using task file provided to programme and looks for 
     keywords 'path_to_file', 'step_no', 'dt', 'temp' to define md parameters
 • convert holds values to convert between units
@@ -16,39 +34,20 @@ FILES:
 • times is a function that returns the time
 • velocities excecutes v(t+dt) = v(t) + (force(t) + force(t+dt)) * dt/2mass 
 
------------------------
-INPUT:
------------------------
 
-• task file (eg):
-************************
-path_to_file = water.inp # gamess gradient input file 
-step_no      = 60000     # number of steps
-dt           = 1e-15     # time step
-temp         = 300       # temperature
-restart      = True      # Boolean for restart calculation
-mtd          = True      # Boolean for metadynamics simulation
-************************
-• expects gamess gradient input file
+### Restart:
 
------------------------
-RESTART:
------------------------
 • in dir with .trj file of previous calculation
 • in dir with FMO .inp file with same system info
 
 
------------------------
-Metadynamics:
------------------------
+### Metadynamics:
+
 • call function after gradient calculation
 • determines the form of the
 
 
-
------------------------
-OUTPUT:
------------------------
+### Output:
 
 • gamess gradient calculation ouput goes into /md_sub/ 
 • each step gets a folder within md_sub
@@ -56,33 +55,31 @@ OUTPUT:
 • file.md prints step , potential, kinetic and error information
 • file.trj prints the coordinates, force and velocity for each step
 
------------------------
-EXCECUTION:
------------------------
+
+### Excecution:
 
 • job file (eg.):
-***********************
-#!/bin/bash
-#PBS -P k96
-#PBS -l walltime=40:00:00
-#PBS -l ncpus=16
-#PBS -l mem=63GB
-#PBS -l jobfs=100GB
-#PBS -l wd
 
-module unload openmpi/1.6.3
-module load openmpi/1.8.2
-module load python3
-python3 /short/k96/zls565/md/src/aimd.py
-************************
+    #!/bin/bash
+    #PBS -P k96
+    #PBS -l walltime=40:00:00
+    #PBS -l ncpus=16
+    #PBS -l mem=63GB
+    #PBS -l jobfs=100GB
+    #PBS -l wd
 
------------------------
-UNITS:
------------------------
+    module unload openmpi/1.6.3
+    module load openmpi/1.8.2
+    module load python3
+    python3 /short/k96/zls565/md/src/aimd.py
+
+
+### Units:
+
 • Position    Bohr                           (Bohr)
 • Time        Second                         (s)
 • Mass        AMU                            (AMU)
 • Velocity    Bohr per Second                (Bohr/s)
 • Force       AMU by Bohr per Second squared (AMU*Bohr/s^2)
------------------------
+
 
