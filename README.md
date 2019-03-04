@@ -8,6 +8,7 @@
 
 ### Input:
 
+• expects gamess gradient input file
 • task file (eg):
 
     path_to_file = water.inp # gamess gradient input file 
@@ -16,19 +17,18 @@
     temp         = 300       # temperature
     restart      = True      # Boolean for restart calculation
     mtd          = True      # Boolean for metadynamics simulation
-        
-• expects gamess gradient input file
-
+    
 
 ### Files
 
-• aimd executes md() using task file provided to programme and looks for 
-    keywords 'path_to_file', 'step_no', 'dt', 'temp' to define md parameters
+• aimd executes md() using task file provided to programme and looks for keywords 'path_to_file', 'step_no', 'dt', 'temp' to define md parameters
+
 • convert holds values to convert between units
+
 • forces handles collecting forces from gamess output
 • main holds the md() function and calls the others in a loop
 • masses holds the molar masses in a dictionary
-• positions excecutes r(t+dt) = r(t) + v(t)*dt + 1/2 * force(t)/mass * dt**2
+• positions excecutes r(t+dt) = r(t) + v(t)*dt + 1/2 * force(t)/mass * dt\**2
 • read_gms reads 'path_to_file' which is a gradient input file for gamess
 • temp holds a function which determines the current md temperature
 • times is a function that returns the time
@@ -38,6 +38,7 @@
 ### Restart:
 
 • in dir with .trj file of previous calculation
+
 • in dir with FMO .inp file with same system info
 
 
