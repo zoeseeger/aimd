@@ -11,12 +11,12 @@
 - expects gamess gradient input file
 - task file (eg):
 
-    path_to_file = water.inp # gamess gradient input file 
-    step_no      = 60000     # number of steps
-    dt           = 1e-15     # time step
-    temp         = 300       # temperature
-    restart      = True      # Boolean for restart calculation
-    mtd          = True      # Boolean for metadynamics simulation
+        path_to_file = water.inp # gamess gradient input file 
+        step_no      = 60000     # number of steps
+        dt           = 1e-15     # time step
+        temp         = 300       # temperature
+        restart      = True      # Boolean for restart calculation
+        mtd          = True      # Boolean for metadynamics simulation
     
 
 ### Files
@@ -58,18 +58,18 @@
 
 - job file (eg.):
 
-    #!/bin/bash
-    #PBS -P k96
-    #PBS -l walltime=40:00:00
-    #PBS -l ncpus=16
-    #PBS -l mem=63GB
-    #PBS -l jobfs=100GB
-    #PBS -l wd
+        #!/bin/bash
+        #PBS -P k96
+        #PBS -l walltime=40:00:00
+        #PBS -l ncpus=16
+        #PBS -l mem=63GB
+        #PBS -l jobfs=100GB
+        #PBS -l wd
 
-    module unload openmpi/1.6.3
-    module load openmpi/1.8.2
-    module load python3
-    python3 /short/k96/zls565/md/src/aimd.py
+        module unload openmpi/1.6.3
+        module load openmpi/1.8.2
+        module load python3
+        python3 /short/k96/zls565/md/src/aimd.py
 
 
 ### Units:
