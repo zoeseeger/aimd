@@ -1,4 +1,4 @@
-# ab initio molecular dynamics with metadynamics
+# ab initio molecular dynamics with GAMESS
 
 - Python module
 - Spawns GAMESS gradient calculations and pulls the forces
